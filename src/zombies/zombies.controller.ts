@@ -30,6 +30,14 @@ export class ZombiesController {
   findOne(@Param('id') id: number) {
     return this.zombiesService.findOne(+id);
   }
+  @Get('weapon/:weapon')
+  findOneByWeapon(@Param('weapon') weapon: string) {
+    return this.zombiesService.findOneByWeapon(weapon);
+  }
+  @Get('armor/:armor')
+  findOneByArmor(@Param('armor') armor: string) {
+    return this.zombiesService.findOneByArmor(armor);
+  }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateZombieDto: UpdateZombieDto) {

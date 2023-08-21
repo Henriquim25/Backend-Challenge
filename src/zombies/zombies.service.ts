@@ -24,6 +24,21 @@ export class ZombiesService {
     });
   }
 
+  findOneByWeapon(weapon: string) {
+    return this.prismaService.zombies.findFirst({
+      where: {
+        weapon: weapon,
+      },
+    });
+  }
+  findOneByArmor(armor: string) {
+    return this.prismaService.zombies.findFirst({
+      where: {
+        armor: armor,
+      },
+    });
+  }
+
   update(id: number, updateZombieDto: UpdateZombieDto) {
     return this.prismaService.zombies.update({
       where: { id: id },
